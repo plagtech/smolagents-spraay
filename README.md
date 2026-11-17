@@ -83,6 +83,8 @@ from smolagents import load_tool
 send_eth = load_tool("<namespace>/spraay-batch-send-eth", trust_remote_code=True)
 ```
 
+The script creates each Space as a static Space, which works on a free Hugging Face account, so the Spaces show a short info page instead of a Gradio demo. `load_tool` only needs `tool.py` and is unaffected.
+
 Do not add a private key as a secret on the public Spaces this creates.
 
 ## Development
