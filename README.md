@@ -1,6 +1,14 @@
 # smolagents-spraay
 
+[![PyPI version](https://img.shields.io/pypi/v/smolagents-spraay)](https://pypi.org/project/smolagents-spraay/)
+
 Spraay batch payment tools for [smolagents](https://github.com/huggingface/smolagents). An agent can pay up to 200 recipients in a single transaction on Base through the [Spraay](https://spraay.app) batch contract.
+
+- **PyPI:** https://pypi.org/project/smolagents-spraay/
+- **Hub tools:**
+  - https://huggingface.co/spaces/plagtech/spraay-batch-send-eth
+  - https://huggingface.co/spaces/plagtech/spraay-batch-send-token
+  - https://huggingface.co/spaces/plagtech/spraay-batch-send-eth-variable
 
 | Tool | What it does | Contract function |
 | --- | --- | --- |
@@ -71,7 +79,17 @@ The live suite confirms that every function in the bundled ABI exists in the dep
 
 ## Hugging Face Hub
 
-Each tool class is self-contained, so it can be shared with `Tool.push_to_hub` and loaded with `load_tool`:
+The published tools can be loaded straight from the Hub:
+
+```python
+from smolagents import load_tool
+
+send_eth = load_tool("plagtech/spraay-batch-send-eth", trust_remote_code=True)
+```
+
+The other two are `plagtech/spraay-batch-send-token` and `plagtech/spraay-batch-send-eth-variable`.
+
+To publish your own copies: each tool class is self-contained, so it can be shared with `Tool.push_to_hub` and loaded with `load_tool`:
 
 ```bash
 python scripts/push_to_hub.py --namespace <your-hf-username-or-org>
